@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity() {
 
         languageIdentifier.identifyLanguage(text)
             .addOnSuccessListener { languageCode ->
+                // By default, ML Kit returns a value other than und only when
+                // it identifies the language with a confidence value of at least 0.5
                 if (languageCode != "und") {
                     resultTextView.text = languageCode
                 } else {
